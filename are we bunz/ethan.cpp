@@ -5,5 +5,5 @@ int main() {
   int brandons_private_size = -1;
   cout << "Hello World!";
   cout << brandons_private_size;
-  return 67;
+  return 0;
 }
