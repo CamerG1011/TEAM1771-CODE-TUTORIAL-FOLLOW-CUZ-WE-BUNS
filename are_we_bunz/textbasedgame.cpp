@@ -6,47 +6,46 @@
 using namespace std;
 
 int money = 0;
-string temp;
+string userinput;
 
-list<string> gameIntros = {"brandon is so cool he is such a peak forehead guy", "BOY", "i love money i love foraging money", "i love brandon brand is so cool", "did you help menu exist by asking for help", "made by the glorious king ethanol", "brandon's gay", "arjun needs to stop eating", "team1771", "67", "6741"};
+int sixes;
+int sevens;
 
 int game() {
     system("clear");
-    string brandon;
-    string temp = "";
 
-    mt19937 gen(random_device{}());
-    uniform_int_distibution<> dist(0, gameIntros.size() - 1);
-    int randomIndex = dist(gen);
-    string intro = gameIntros[randomIndex];
+    cout << "sixes: " << sixes << endl;
+    cout << "sevens: " << sevens << endl;
+}
 
-    cout << "the ultimate enter game" << endl;
-    cout << "by ethan jang the king guy" << endl;
-    cout << "type help for commands\n" << endl;
+int start(bool clearterminal, string starttext) {
+    if (clearterminal) {
+        system("clear");
+    };
+    if (!starttext.empty()) {
+        cout << starttext << "\n" << endl;
+    };
+    cout << "welcome to the great 67 enter game" << endl;
+    cout << "inpired by king yutaka\n" << endl;
+    cout << "1) start new game" << endl;
+    cout << "2) load game" << endl;
+    cout << "3) inspiration" << endl;
+    
+    cout << "";
+    getline(cin, userinput);
 
-    cout << "Enters: " << money << endl;  
-
-    std::getline(cin, brandon);
-
-    transform(brandon.begin(), brandon.end(), brandon.begin(),
-                   [](unsigned char c){ return std::tolower(c); });
-
-    if (brandon.empty()) {
-        money++;
+    if (userinput.empty()) {
+        start(true, "");
+    } else if (userinput == "1") {
         game();
-    } else if (brandon == "help") {
-        cout << "1. say <upgrade> to buy" << endl;
-        cout << "(press enter to continue)" << endl;
-        std::getline(std::cin, temp);
-        if (temp.empty()) {
-            game();
-        }
-    } else {
-        game();
-    }
+    } else if (userinput == "2") {
+        start(true, "coming soon so be patient you son of a keoni");
+    } else if (userinput == "3") {
+        start(true, "made by the peak and the great inspiration 67 yutaka");
+    };
 };
 
 int main() {
-    game();
+    start(true, "");
     return 0;
 };
